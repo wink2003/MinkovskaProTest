@@ -15,7 +15,7 @@ public class BackEndTest extends BaseTestUtils {
 
 
     @Test
-    public void backendLoginTest() throws InterruptedException {
+    public void backendLoginTest() {
         getDriver().get(BACK_LOGIN_URL);
         loginBackEnd();
         boolean avatarimg = getWait10().until(ExpectedConditions.visibilityOfElementLocated(
@@ -35,8 +35,7 @@ public class BackEndTest extends BaseTestUtils {
             Assert.assertFalse(webElement.getText().contains("Добавить"));
         }
     }
-    @Ignore
-    @Test
+     @Test
     public void pagesTranslateRuTRTest() {
         getDriver().get(BACK_LOGIN_URL);
         loginBackEnd();
