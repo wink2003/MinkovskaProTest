@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import utils.BaseTestUtils;
 
@@ -34,9 +35,9 @@ public class BackEndTest extends BaseTestUtils {
             Assert.assertFalse(webElement.getText().contains("Добавить"));
         }
     }
-
+    @Ignore
     @Test
-    public void pagesTranslateRuTest() {
+    public void pagesTranslateRuTRTest() {
         getDriver().get(BACK_LOGIN_URL);
         loginBackEnd();
         getDriver().findElement(By.xpath("//li[@id='menu-pages']//div[3]")).click();
