@@ -16,7 +16,7 @@ public class FrontEndTest extends BaseTestUtils {
 
 
     @Test
-    public void sendFormAllTest() throws InterruptedException {
+    public void sendFormAllTest() {
         getDriver().get(FRONT_MAIN_URL);
 
         getDriver().findElement(By.name("names[first_name]")).sendKeys("Testname");
@@ -30,7 +30,7 @@ public class FrontEndTest extends BaseTestUtils {
         Assert.assertEquals(thankyoutext.getText(), "Дякую, я з вами зв'яжусь");
     }
     @Test
-    public void sendFormEmptyNameTest() throws InterruptedException {
+    public void sendFormEmptyNameTest() {
         getDriver().get(FRONT_MAIN_URL);
 
         getDriver().findElement(By.name("names[first_name]")).sendKeys("");
@@ -39,14 +39,12 @@ public class FrontEndTest extends BaseTestUtils {
         getDriver().findElement(By.name("terms-n-condition")).click();
         getDriver().findElement(By.name("custom_submit_button-6_1")).click();
 
-        WebElement erroremsg = getDriver().findElement(By.className("text-danger"));
-                //getWait10().until(ExpectedConditions.presenceOfElementLocated(By.className("error text-danger")));
-        System.out.println(erroremsg.getText());
-        //Assert.assertEquals(erroremsg.getText(), "Обов'язково");
+        WebElement erroremsg = getWait10().until(ExpectedConditions.presenceOfElementLocated(By.className("text-danger")));
+        Assert.assertEquals(erroremsg.getText(), "Обов'язково");
     }
 
     @Test
-    public void showMenuOnMinResolutionTest() throws InterruptedException {
+    public void showMenuOnMinResolutionTest() {
         getDriver().get(FRONT_MAIN_URL);
 
         getDriver().manage().window().setSize(new Dimension(1200, 907));
@@ -57,7 +55,7 @@ public class FrontEndTest extends BaseTestUtils {
     }
 
     @Test
-    public void defaultLangIsUATest() throws InterruptedException {
+    public void defaultLangIsUATest() {
         getDriver().get(FRONT_MAIN_URL);
 
         WebElement languageua = getDriver().findElement(By.
