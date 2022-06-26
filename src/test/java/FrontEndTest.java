@@ -80,7 +80,6 @@ public class FrontEndTest extends BaseTestUtils {
         getDriver().findElement(By.name("names[first_name]")).sendKeys("Testname");
         getDriver().findElement(By.name("email")).sendKeys("test@test.net");
         getDriver().findElement(By.name("input_mask")).sendKeys("0440000000");
-        //getDriver().findElement(By.name("terms-n-condition")).click();
         getDriver().findElement(By.name("custom_submit_button-6_1")).click();
 
         WebElement erroremsg = getWait10().until(ExpectedConditions.presenceOfElementLocated(By.className("text-danger")));
