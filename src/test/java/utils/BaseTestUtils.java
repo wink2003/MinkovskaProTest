@@ -45,7 +45,7 @@ public class BaseTestUtils {
         chromeOptions.addArguments("start-maximized");
         driver = new ChromeDriver(chromeOptions);
         wait10 = new WebDriverWait(driver, 10);
-
+//Properties for driver
         prop = new Properties();
         InputStream propStreem = getClass().getClassLoader().getResourceAsStream("local.properties");
         if (propStreem != null) {
