@@ -42,7 +42,19 @@ public class FrontEndTest extends BaseTestUtils {
         WebElement erroremsg = getWait10().until(ExpectedConditions.presenceOfElementLocated(By.className("text-danger")));
         Assert.assertEquals(erroremsg.getText(), "Обов'язково");
     }
+    @Test
+    public void sendFormEmptyEmailTest() {
+        getDriver().get(FRONT_MAIN_URL);
 
+        getDriver().findElement(By.name("names[first_name]")).sendKeys("Testname");
+        getDriver().findElement(By.name("email")).sendKeys("");
+        getDriver().findElement(By.name("input_mask")).sendKeys("0440000000");
+        getDriver().findElement(By.name("terms-n-condition")).click();
+        getDriver().findElement(By.name("custom_submit_button-6_1")).click();
+
+        WebElement erroremsg = getWait10().until(ExpectedConditions.presenceOfElementLocated(By.className("text-danger")));
+        Assert.assertEquals(erroremsg.getText(), "Обов'язково");
+    }
     @Test
     public void showMenuOnMinResolutionTest() {
         getDriver().get(FRONT_MAIN_URL);
